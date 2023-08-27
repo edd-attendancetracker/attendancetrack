@@ -54,8 +54,8 @@ def process_pictures():
 def compare_pictures():
     for i in range(len(roster)):
         print(list(roster.values())[i])
-        DeepFace.find(img_path = str(list(roster.values())[i]), db_path = '/home/haozewang/Facial_Recognition/attendancetrack/cropped_pictures/', enforce_detection = False)[0]
-
+        result = DeepFace.find(img_path = str(list(roster.values())[i]), db_path = '/home/haozewang/Facial_Recognition/attendancetrack/cropped_pictures/', enforce_detection = False)[0]
+        print(result)
 
 collect_pictures()
 process_pictures()

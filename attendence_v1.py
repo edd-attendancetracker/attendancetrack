@@ -6,15 +6,16 @@ from deepface import DeepFace
 from time import sleep
 
 #list of all people's names and their photo directories
+#names have been initialized to protect the privacy of classmates involved in this project
 roster = {
-        "Hagan Riethmiller" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/Hagan_Riethmiller.jpg',
-        "Haoze Wang" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/Haoze_Wang.png',
-        "Jadon Lee" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/Jadon Lee.jpg',
-        "Jeremy Suen" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/Jeremy_Suen.jpg',
-        #"Keshav Sreekantham" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/Keshav_Sreekantham.jpg', 
-        #"Nikhil Modak" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/Nikhil_Modak.jpg',
-        "Sofia Davila Ramirez" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/Sofia_Davilaramirez.jpg',
-        "Mannat Ahluwalia" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/Mannat_Ahluwalia.jpg'
+        "HR" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/HR.jpg',
+        "HW" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/HW.png',
+        "JL" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/JL.jpg',
+        "JS" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/JS.jpg',
+        "KS" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/KS.jpg', 
+        "NM" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/NM.jpg',
+        "SDR" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/SDR.jpg',
+        "MA" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/MA.jpg'
         }
 mugshots = []
 cropshots = []
@@ -75,5 +76,5 @@ def compare_pictures():
         print(result)
 
 collect_pictures()
-#process_pictures()
+process_pictures()
 compare_pictures()

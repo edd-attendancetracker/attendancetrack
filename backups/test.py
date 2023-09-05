@@ -5,7 +5,7 @@ from time import sleep
 
 #list of all people's names and their photo directories
 roster = {
-        "Hagan Riethmiller" : '/home/haozewang/Pictures/Webcam/Hagan_Riethmiller.jpg'
+        "HR" : '/home/haozewang/Pictures/Webcam/HR.jpg'
         }
 mugshots = []
 

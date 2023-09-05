@@ -7,8 +7,7 @@ from time import sleep
 
 #list of all people's names and their photo directories
 roster = {
-        "Hagan Riethmiller" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/Hagan_Riethmiller.png',
-        "Haoze Wang" : '/home/haozewang/Facial_Recognition/attendancetrack/roster/Haoze_Wang.png'
+        "HR" : '/home/haozewang/Pictures/Webcam/HR.jpg'
         }
 mugshots = []
 cropshots = []
@@ -30,11 +29,11 @@ def collect_pictures():
         if not ret:
             raise Exception("Could not capture frame")
         # Save the captured frame to an image file
-        cv2.imwrite('/home/haozewang/Facial_Recognition/attendancetrack/webcam_pictures/image'+str(n)+'.jpg', frame)
-        mugshots.append('/home/haozewang/Facial_Recognition/attendancetrack/webcam_pictures/image'+str(n)+'.jpg')
+        cv2.imwrite('/home/haozewang/Facial_Recognition/attendancetrack/pictures/image'+str(n)+'.jpg', frame)
+        mugshots.append('/home/haozewang/Facial_Recognition/attendancetrack/pictures/image'+str(n)+'.jpg')
         n+=1
         print(mugshots)
-        sleep(0.1)
+        sleep(1)
         # Release the camera and destroy all windows
         cap.release()
         cv2.destroyAllWindows()
@@ -47,16 +46,14 @@ def process_pictures():
             face = face_info['face']
             # Convert the image data to 8-bit format
             face = np.uint8(face * 255)
-            cv2.imwrite('/home/haozewang/Facial_Recognition/attendancetrack/cropped_pictures/cropped_face{}_{}.jpg'.format(i, j), face)
-            cropshots.append('/home/haozewang/Facial_Recognition/attendancetrack/cropped_pictures/cropped_face{}_{}.jpg'.format(i,j))
+            cv2.imwrite('/home/haozewang/Facial_Recognition/attendancetrack/pictures/cropped_face{}_{}.jpg'.format(i, j), face)
+            cropshots.append('/home/haozewang/Facial_Recognition/attendancetrack/pictures/cropped_face{}_{}.jpg'.format(i,j))
             print(cropshots)
 #recursively compares each mugshot to the reference photos to determine who are in the mugshots
 def compare_pictures():
     for i in range(len(roster)):
-        print(list(roster.values())[i])
-        result = DeepFace.find(img_path = str(list(roster.values())[i]), db_path = '/home/haozewang/Facial_Recognition/attendancetrack/cropped_pictures/', enforce_detection = False)[0]
-        print(result)
+        DeepFace.find(img_path = str(roster[list(roster.keys())[i]]), db_path = '/home/haozewang/Facial_Recognition/attendancetrack/pictures', enforce_detection = False)[0]
 
 collect_pictures()
 process_pictures()
-compare_pictures()
+#compare_pictures()
